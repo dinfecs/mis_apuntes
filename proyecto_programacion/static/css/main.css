@@ -1,0 +1,301 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #171920;
+}
+
+.font {
+    padding-bottom: .5em;
+}
+#siguenosEn {
+    padding-top: 1em;
+}
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+nav#navbar-sup{
+    border-radius: 0 !important;
+}
+.navbar-inverse {
+    background-color: #222;
+    border-color: #303030;
+    border: 0;
+}
+.navbar {
+    margin: 0;
+}
+.navbar-sup-font-size {
+    font-size: inherit;
+}
+i#facebook {
+    color: #4867AA;
+}
+i#twitter {
+    color: #1DA1F2;
+}
+i#youtube {
+    color: #C3181E;
+}
+i#twitch {
+    color: #6441A5;
+}
+div#asd {
+    cursor: pointer;
+    width: 100%;
+    height: 500px;
+    background-color: #303030;
+    background-image: url(../img/indie.jpg);
+    background-position: center;
+    box-shadow: inset 0px 0px 100px 27px rgba(0,0,0,0.75);
+}
+div#asd1 {
+    cursor: pointer;
+    width: 100%;
+    height: 500px;
+    background-image: url(../img/Drifter1.jpg);
+    background-position: center;
+    box-shadow: inset 0px 0px 100px 27px rgba(0,0,0,0.75);
+}
+div#asd2 {
+    cursor: pointer;
+    width: 100%;
+    min-height: 500px;
+    background-image: url(../img/portada.jpg);
+    background-position: center;
+    box-shadow: inset 0px 0px 100px 27px rgba(0,0,0,0.75);
+}
+.col-sm-4 {
+    padding: 0;
+}
+.col-sm-12 {
+    padding: 0;
+}
+#menu-sup {
+    background-color: #303030;
+    max-width: 100%;
+    min-height: 45px;
+    text-transform: uppercase;
+}
+#menu-inf {
+    position: relative;
+    background-color: #FFFFFF;
+    max-width: 100%;
+    min-height: 60px;
+    margin: 0 auto;
+}
+.nav-center {
+    top: -10px;
+}
+
+#triangulo_de {
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid white;
+    border-left: 50px solid transparent;
+    float: right;
+    margin-top: -58px;
+}
+#triangulo_iz {
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid white;
+    border-right: 50px solid transparent;
+    float: left;
+    margin-top: -58px;
+}
+#menuprinCenter {
+    text-align: center;
+    line-height: 60px;
+}
+.botonesMenuprin {
+    padding-left: 1em;
+    padding-right: 1em;
+    text-decoration: none;
+    color: black;
+    display: inline-table;
+    width: 60px;
+    height: 60px;
+    font-size: 15px;
+}
+.botonesMenuprin:hover {
+    font-weight: bold;
+    background-color: #E7E7E2;
+    text-decoration: none;
+    transition: 0.5s;
+    color: black;
+}
+.botonesMenuSup {
+    font-family: 'Open Sans', sans-serif;
+    display: block;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-decoration: none;
+    color: white;
+    line-height: 45px;
+    height: 45px;
+    font-size: 12px;
+    font-weight: lighter;
+    float: left;
+}
+.botonesMenuSup:hover {
+    background-color: #171920;
+    text-decoration: none;
+    transition: 0.5s;
+    color: white;
+}
+.menuPrinFon {
+    left: 38%;
+    top: 68%;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid black;
+    display: none;
+}
+div.menuPrinFon:hover {
+    display: block
+    transition: 0.3s;
+}
+a:active {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+a:focus {
+    text-decoration: none;
+}
+#logomenu {
+    margin-left: 70px;
+    width: 98px;
+    height: 25px;
+    position: absolute;
+}
+.navbar-brand {
+    padding: 18px 0 0 0;
+}
+
+.cat_banner {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgba(8,8,8,.8);
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: .05em;
+    background-color: #303030;
+    width: 75px;
+    height: 20px;
+    border-radius: 5px;
+}
+.enlaceBanner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 40px;
+    z-index: 2;
+}
+.cat_boton {
+    color: white;
+    line-height: 2;
+    padding-left: 9px;
+}
+.tit_banner {
+    text-transform: uppercase;
+    font-weight: 800;
+    color: rgba(8,8,8,.8);
+    line-height: 1;
+    letter-spacing: .05em;
+    width: 75px;
+    height: 20px;
+    border-radius: 5px;
+    color: white;
+}
+.autor_banner {
+    text-transform: uppercase;
+    color: rgba(8,8,8,.8);
+    letter-spacing: .05em;
+    color: white;
+    padding-top: 15px;
+    font-size: 12px;
+}
+.enlace_banner2 {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+#bannerIni {
+    padding: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#contenidoPost {
+    background: white;
+    height: 400px;
+}
+#footer{
+    background-color: #1A1A1A;
+}
+
+.sectionFooter {
+    padding: 3em;
+    color: white;
+}
+.separador{
+    border-bottom: 2px solid white;
+}
+
+#footerLogo {
+    display: flex;
+    justify-content: center;
+    padding-top: 5em;
+    padding-bottom: 1em;
+}
+
+#footerInf {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+#copy {
+    color: gray;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2em;
+}
+
+#logoFooter {
+    width: 98px;
+}
+
+.iconoRed {
+    position: absolute;
+    line-height: 38px;
+    width: 38px;
+    padding-left: 14px;
+    height: 38px;
+    background: #292929;
+    font-size: 1em;
+    margin-top: 1px;
+}
+
+.suscriBarra {
+    width: 395px;
+    height: 38px;
+    background: #292929;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 39px;
+    padding-right: 20px;
+    padding-top: 10px;
+    margin-top: 1px;
+}

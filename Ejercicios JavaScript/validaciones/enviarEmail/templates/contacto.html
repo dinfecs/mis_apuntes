@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+	<h1>Contacto</h1>
+	<ul id="errores"></ul>
+	<form action="" method="post" class="container" onsubmit="return enviarMensaje()">
+		<div id="groupNombre" class="form-group">
+			<input placeholder="Nombre" id="nombre" type="text" class="form-control" name="nombre">
+			<label class="control-label" for="nombre"></label>
+		</div>
+		<div class="form-group" id="groupEdad">
+			<input placeholder="Edad" id="edad" type="text" class="form-control" name="edad">
+			<label class="control-label" for="edad"></label>
+		</div>
+		<div class="form-group" id="groupEmail">
+			<input id="email" placeholder="Email" type="text" class="form-control" name="email">
+			<label class="control-label" for="email"></label>
+		</div>
+		<div class="form-group" id="groupMensaje">
+			<textarea id="mensaje" class="form-control" name="mensaje" placeholder="Mensaje"></textarea>
+			<label class="control-label" for="mensaje"></label>
+		</div>
+		<input type="submit" value="Enviar" class="btn">
+	</form>
+	<script>
+		let nombre = document.querySelector('#nombre');
+		let groupNombre = document.querySelector('#groupNombre');
+		let edad = document.querySelector('#edad');
+		let groupEdad = document.querySelector('#groupEdad');
+		let email = document.querySelector('#email');
+		let mensaje = document.querySelector('#mensaje');
+
+		let enviarMensaje = function() {
+			// Limpiamos los errores anteriores
+			let formgroups = document.querySelectorAll('.form-group');
+			for(item of formgroups) {
+				item.classList.remove('has-error');
+				item.querySelector('label').innerHTML = '';
+			}
+
+			// Validar nombre
+			if(nombre.value.length == 0) {
+				groupNombre.classList.add('has-error');
+				groupNombre.querySelector('label').innerHTML = 'Debes rellenar el nombre';
+				return false;
+			}
+
+			// Validar edad
+			if(isNaN(edad.value)) {
+				groupEdad.classList.add('has-error');
+				groupEdad.querySelector('label').innerHTML = 'No ha introducido una edad válida';
+				return false;
+			}
+			if(edad.value.length == 0) {
+				groupEdad.classList.add('has-error');
+				groupEdad.querySelector('label').innerHTML = 'La edad es obligatoria';
+				return false;
+			}
+
+			// Validar email
+			let emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+			if (!emailRegex.test(email.value)) {
+				groupEmail.classList.add('has-error');
+				groupEmail.querySelector('label').innerHTML = 'El email no es correcto';
+				return false;
+			}
+
+			// Validar mensaje
+			if(mensaje.value.length <= 10) {
+				groupMensaje.classList.add('has-error');
+				groupMensaje.querySelector('label').innerHTML = 'Tu mensaje es demasiado corto. No tienes imaginación?';
+				return false;
+			}
+
+			return true;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+- Crea un array con 5 sitios donde hayas viajado.
+
+- Imprimelo con un for.
+
+- Imprimelo con un for/in.

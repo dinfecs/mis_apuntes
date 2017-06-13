@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Comprobamos la edad</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+		#bloqueadorEdad {
+			display: none;
+			justify-content: center;
+			align-items: center;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, .7);
+		}
+	</style>
+</head>
+<body>
+	<h1>Tractores oficial</h1>
+	<h2>Nacionales</h2>
+	<p>
+		Amet dolore nesciunt consectetur odio ipsum aut magni, dolore Vero expedita suscipit ducimus quo quidem? Consequatur enim aliquam voluptatum architecto necessitatibus Reiciendis veritatis culpa beatae accusamus quisquam hic. Animi ab.
+	</p>
+	<div id="bloqueadorEdad">
+		<form id="formEdad" action="">
+			<select id="edad" name="edad" class="form-control">
+			</select>
+			<input type="button" id="botonEdad" value="Comprobar" class="btn">
+		</form>
+	</div>
+	<script>
+		// Generar options de select
+		const EDAD_LEGAL = 18;
+		let edad = document.querySelector('#edad');	
+		let inicioAnyo = 1900;
+		let finalAnyo = new Date().getFullYear();
+		let htmlOptions = '';
+		for(let i = inicioAnyo; i <= finalAnyo; i++) {
+			htmlOptions += `<option value="${i}">${i}</option>`;
+		}
+		edad.innerHTML = htmlOptions;
+		// Mostrar bloqueado de edad
+		let tiempoParaMostrar = 1500;
+		let bloqueadorEdad = document.querySelector('#bloqueadorEdad');
+		setTimeout(function() {
+			bloqueadorEdad.style.display = 'flex';
+		}, tiempoParaMostrar);
+		// Comprobamos si tiene la edad
+		let botonEdad = document.querySelector('#botonEdad');
+		botonEdad.addEventListener('click', function() {
+			let anyoSeleccionado = edad.value;	
+			if(anyoSeleccionado <= (finalAnyo - EDAD_LEGAL)) {
+				// Es adulto
+				bloqueadorEdad.style.display = 'none';
+			} else {
+				document.location = 'http://marca.com/';
+			}
+		}, false);
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+La cueva del Golum
+- Propon una adivinanza.
+- Pide la respuesta.
+- Si se equivoca restar una oportunidad.
+- Tiene 3 oportunidades.
+- Si pierde, mostrar el resultado y cómetelo. 
+
+
+Pro:
+Programa el juego del ahorcado.

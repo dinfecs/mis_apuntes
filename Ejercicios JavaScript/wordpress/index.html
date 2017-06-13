@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IdePress</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+	  <header id="header">
+	 	<h1 id="tituloHeader">Escribe el título</h1>
+	  </header>
+	  <div class="container">
+		  <p id="contenidoHTML">Ipsum culpa quam expedita earum fugiat? Molestiae amet alias iure porro sint voluptates. A rem error magni nesciunt hic! Cupiditate distinctio ipsam repellat ex natus Voluptatum labore eaque sapiente et.</p>
+	  </div>
+	  <section id="editor">
+		  <form>
+		 	<input id="titulo" type="text" placeholder="Escribe tu titulo" class="form-control" onkeyup="guardar()" value="pon tu titulo">
+			<textarea id="contenido" placeholder="Escribe el contenido de tu página" class="form-control" onkeyup="guardar()">Dolor commodi perferendis illo rem distinctio consequatur Maxime magnam amet beatae recusandae quidem? Illo accusamus magni placeat rem nihil Accusamus autem quaerat et qui sunt quam soluta repellat ab? Doloribus?</textarea>
+			<input onchange="guardar()" id="imagen" type="text" placeholder="URL imagen" class="form-control" value="http://68.media.tumblr.com/408fbfeae2d8590512b9fc9cc6207090/tumblr_mr807bH7hh1st5lhmo1_1280.jpg">
+			<input id="colorTexto" type="color" class="form-control" value="#000">
+			<input class="btn" type="button" value="Salvar" onclick="guardar()">
+		  </form>
+	  </section>
+	<script src="js/main.js"></script>		
+  </body>
+</html>

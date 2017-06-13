@@ -1,0 +1,25 @@
+<html>
+	<input type="text" id="viaje" name="viaje">
+	<button onclick="add()">Add</button>
+	<ul id="lista">
+			
+	</ul>
+	<script>
+		let mis_viajes = [];
+
+		let add = function() {
+			//Variables
+			let campo_texto = document.querySelector('#viaje');
+			let lista = document.querySelector('#lista');
+			let html_viajes = '';
+			//Subir
+			mis_viajes.push(campo_texto.value);
+			//imprimnir
+			for(viaje of mis_viajes) {
+				html_viajes += '<li>' + viaje + '</li>';
+			}
+			lista.innerHTML = html_viajes;
+			campo_texto.value = '';
+		}
+	</script>
+</html>

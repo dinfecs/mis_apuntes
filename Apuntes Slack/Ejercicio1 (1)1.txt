@@ -1,0 +1,14 @@
+Portero de discoteca automático
+
+- Pide el año de nacimiento.
+- Calcula la edad.
+- Si es mayor de edad, dile que puede pasar dentro.
+- Si es menor, tírale.
+
+Pro:
+
+- Obten el año del sistema.
+
+Pro2:
+
+- Pide además el día y el mes de nacimiento para saber si ha complido el año actual.

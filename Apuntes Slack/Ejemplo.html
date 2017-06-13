@@ -1,0 +1,42 @@
+<script type="text/javascript"> 
+
+//Condicionales
+if(2 == 2) { 
+	alert('2 es igual a 2') 
+} else { 
+	alert('2 es distinto de 2') 
+} 
+
+var iNum = 2
+switch(iNum) {
+	case 1:
+		alert('Estoy en el 1')
+		break;
+	case 2:
+		alert('Estoy en el 2')
+		break;
+	default:
+		alert('Estoy en el default')
+		break;
+}
+
+//Bucle for
+for(var i = 0; i < 10; i++){ 
+	alert(i)
+} 
+
+//Bucle While
+var i = 0
+while(i < 10) { 
+	alert(i)
+	i++
+} 
+
+//Bucle For/in
+
+var asNoms = new Array('Hola', 'Mundo')
+
+for(iPos in asNoms) {
+	alert(asNoms[iPos]) // asNoms[0] --> asNoms[1]
+}
+</script>

@@ -1,0 +1,25 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Nueva nota{% endblock %}
+{% block body %}
+<h1 class="text-center">Nueva nota</h1>
+<div class="container">
+    <form method="post" action="">
+        {{ form.csrf_token }}
+        <p>
+            {{ form.empresa.label }}{{ form.empresa(class="form-control") }}
+        </p>
+        <p>
+            {{ form.puesto.label }}{{ form.puesto(class="form-control") }}
+        </p>
+        <p>
+            {{ form.anyo_inicio.label }}{{ form.anyo_inicio(class="form-control") }}
+        </p>
+        <p>
+            {{ form.anyo_salida.label }}{{ form.anyo_salida(class="form-control") }}
+        </p>
+        <p>
+            {{ form.submit(class="btn") }}
+        </p>
+    </form>
+</div>
+{% endblock %}

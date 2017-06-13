@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block tittle %}{% endblock %}</title>
+        <link rel="stylesheet" href=" {{ url_for('static', filename='css/bootstrap.min.css') }}">
+    </head>
+    <body>
+        <h1>Tienda</h1>
+        {% block body %}
+        {% endblock %}
+        <footer>2017</footer>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<script type="text/javascript">
+var sPerro = "Perro"
+var sGato = "Gato"
+
+var miObjeto = new String(sPerro)
+
+	//localCompare: 0 --> True; 1 --> False
+	if(sPerro == sGato) console.log('es igual sin objeto');
+	if(miObjeto.localeCompare(sGato) == 0) console.log('es igual con objeto');
+
+//Concadenar
+var sText = 'Hola'
+var sCon = sText.concat(" mundo")
+
+
+/**
+ * Pasar de minúsculas a mayúsculas
+ */
+var sCadenaNormal = "El 90% de nuestras decisiones las toma nuestro subconsciente"
+var sCadenaMayusculas = sCadenaNormal.toUpperCase()
+var sCadenaMinusculas = sCadenaNormal.toLowerCase()
+
+/**
+ * Convertir un número en String
+ */
+var iNum = 5.2
+var iNumString = iNum + ''
+
+
+var iNumInt = parseInt(iNumString)
+var fNumFloat = parseFloat(iNumString)
+
+/**
+ * Arrays
+ */
+var aSaludo = new Array("Hola", "mundo")
+	
+//Longitud
+aSaludo.length
+
+//Añadir sin objeto
+aSaludo[aSaludo.length] = 'que tal';
+
+//Añadir con objeto
+aSaludo.push('bien');
+
+//Imprimir - Equivalente print_r
+console.log(aSaludo.join())
+
+/**
+ * Orden alfabetico
+ */
+if (sPerro > sGato) {
+	//alert(sGato + " esta antes que " + sPerro)
+}
+
+//Sensible a las mayúsculas
+//Son más importantes
+var sAvionMin = "avion"
+var sAvionMay = "Avion"
+if (sAvionMay < sAvionMin) {
+	//alert(sAvionMay + " esta antes que " + sAvionMin)
+}
+
+</script>

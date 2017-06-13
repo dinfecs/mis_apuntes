@@ -1,0 +1,32 @@
+{% extends 'layouts/master.html' %}
+{% block tittle %}Nuevo Producto{% endblock %}
+{% block body %}
+{% if todos_errores %}
+    {% for campo, errores in todos_errores %}
+        {% for error in errores %}
+            <div class="alert alert-danger">
+                <p><strong>{{ campo }}: {{ error }}</strong></p>
+                <p>Rellena bien este campo.</p>
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+<form action="{{ url_for('perfil_modificado') }}" method="post" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+    <p>
+        {{ form.nombre.label }} {{ form.nombre() }}
+    </p>
+    <p>
+        {{ form.apellido.label }} {{ form.apellido() }}
+    </p>
+    <p>
+        {{ form.nombre.descripcion }} {{ form.descripcion() }}
+    </p>
+    <p>
+        {{ form.imagen.label }} {{ form.imagen() }}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+{% endblock %}

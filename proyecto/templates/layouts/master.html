@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Always From Keyboard</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
+    {% block extra_head %}{% endblock %}
+    <script src="{{ url_for('static', filename='js/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    {% block extra_scripts %}{% endblock %}
+  </head>
+  <body>
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="videoA" class="hidden-xs">
+              <video autoplay muted loop class="embed-responsive-item" id="autovid" width="100%" >
+                <source src="{{ url_for('static', filename='vid/banner.mp4') }}" type="video/mp4">
+              </video>
+            </div>
+            <div id="bannerIni" class="hidden-xs">
+              <img  id="bannerPrin" src="{{ url_for('static', filename='img/banner.png') }}" alt="">
+            </div>
+            <div id="bannerText" class="hidden-xs">
+              <h3 id="titBanner">
+                Análisis, Noticias, Opiniones y Mas.
+              </h3>
+            </div>
+            <div id="bannerIniMov" class="visible-xs">
+              <img  id="bannerPrin" src="{{ url_for('static', filename='img/banner.png') }}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url_for('index') }}"><img id="logomenu" src="{{ url_for('static', filename='img/logo.png') }}" alt=""></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{{ url_for('index') }}" class="btn">Inicio</a></li>
+            <li><a href="{{ url_for('contact') }}" class="btn">Contacto</a></li>
+            {% if session.logged_in %}
+              <li style="display: none;"><a href="{{ url_for('login') }}">Login</a></li>
+              <li><a href="{{ url_for('drafts') }}">Pendiente</a></li>
+              <li><a href="{{ url_for('create') }}">Crear Entrada</a></li>
+              <li><a href="{{ url_for('logout') }}">Salir</a></li>
+              {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+            {% block extra_header %}{% endblock %}
+          </ul>
+          <div class="btn-group pull-right">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="siguenosEn1">
+              Siguenos en <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="https://twitter.com/AFKreview"><i class="fa fa-twitter-square" aria-hidden="true" id="twitter"></i> Twitter</a></li>
+              <li><a href="https://www.facebook.com/alwaysfromkeyboard"><i class="fa fa-facebook-square" aria-hidden="true" id="facebook"></i> Facebook</a></li>
+              <li><a href="https://www.youtube.com/channel/UCfOgwQzKNum1hrWR-5rMaLQ"><i class="fa fa-youtube-play" aria-hidden="true" id="youtube"></i> Youtube</a></li>
+              <li><a href="https://www.twitch.tv/alwaysfromkeyboard"><i class="fa fa-twitch" aria-hidden="true" id="twitch"></i> Twitch</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      {% for category, message in get_flashed_messages(with_categories=true) %}
+        <div class="alert alert-{{ category }} alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <p>{{ message }}</p>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+          <section id="contenidoPost">
+            {% block page_header %}
+              <div class="page-header">
+                <h1>{% block content_title %}{% endblock %}</h1>
+              </div>
+            {% endblock %}
+            <div>
+              {% block content %}{% endblock %}
+            </div>
+          </section>
+          <footer id="footer">
+      <div class="row">
+        <div class="col-sm-4">
+          <section class="sectionFooter">
+            <p>SÍGUENOS EN</p>
+            <div class="separador"></div>
+            <div id="siguenosEn">
+              <div class="iconoRed">
+                <i class="fa fa-twitter-square" aria-hidden="true" id="twitter"></i>
+              </div>
+              <div class="suscriBarra">
+                <p><a href="https://twitter.com/AFKreview" class="btn" style="color:white;">SEGUIR</a></p>
+              </div>
+              <div class="iconoRed">
+                <i class="fa fa-facebook-square" aria-hidden="true" id="facebook"></i>
+              </div>
+              <div class="suscriBarra">
+                <p><a href="https://www.facebook.com/alwaysfromkeyboard" class="btn" style="color:white;">ME GUSTA</a></p>
+              </div>
+              <div class="iconoRed">
+                <i class="fa fa-youtube-play" aria-hidden="true" id="youtube"></i>
+              </div>
+              <div class="suscriBarra">
+                <p><a href="https://www.youtube.com/channel/UCfOgwQzKNum1hrWR-5rMaLQ" class="btn" style="color:white;">SUSCRIBIRSE</a></p>
+              </div>
+              <div class="iconoRed">
+                <i class="fa fa-twitch" aria-hidden="true" id="twitch"></i>
+              </div>
+              <div class="suscriBarra">
+                <p><a href="https://www.twitch.tv/alwaysfromkeyboard" class="btn" style="color:white;">SEGUIR</a></p>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="col-sm-4">
+          <section class="sectionFooter">
+            <p>TWEETS</p>
+            <div class="separador"></div>
+            <a class="twitter-timeline" data-width="450" data-height="300" href="https://twitter.com/AFKreview">Tweets by AFKreview</a>
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </section>
+        </div>
+        <div class="col-sm-4">
+          <section class="sectionFooter">
+            <p>BUSCAR</p>
+            <div class="separador"></div>
+            {% block search_bar %}
+              <form action="{{ url_for('index') }}" class="navbar-form" id="search-form" method="get" role="search">
+                <div class="form-group">
+                  <input class="form-control" name="q" placeholder="Search" type="text" value="{% if search %}{{ search }}{% endif %}">
+                </div>
+              </form>
+            {% endblock %}
+          </section>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+            <div class="separador"></div>
+            <p id="footerLogo">
+              <a href="#"><img src="{{ url_for('static', filename='img/logo2.png') }}" alt="" id="logoFooter"></a>
+            </p>
+            <div id="footerInf">
+              <div class="btn-group">
+                <a href="{{ url_for('index') }}" class="btn" style="color:white;">inicio</a>
+                <a href="{{ url_for('contact') }}" class="btn" style="color:white;">contacto</a>
+              </div>
+            </div>
+            <p id="copy">
+              Copyright © 2016 Always From Keyboard - All rights reserved
+            </p>
+        </div>
+      </div>
+    </footer>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <span class="ir-arriba">
+      <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </span>
+  </body>
+</html>

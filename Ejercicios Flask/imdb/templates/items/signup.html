@@ -1,0 +1,18 @@
+{% extends 'layouts/master.html' %}
+{% block title %}Registro{% endblock %}
+{% block body %}
+<center>
+<form action="" method="post">
+    {{ form.csrf_token }}
+    <p>{{ form.username.label }}</p>
+    <p>{{ form.username() }}</p>
+    <p>{{ form.email.label }}</p>
+    <p>{{ form.email() }}</p>
+    <p>{{ form.password1.label }}</p>
+    <p>{{ form.password1() }}</p>
+    <p>{{ form.password2.label }}</p>
+    <p>{{ form.password2() }}</p>
+    <p>{{ form.submit() }}</p>
+</form>
+</center>
+{% endblock %}

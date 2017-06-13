@@ -1,0 +1,36 @@
+{% extends 'layouts/master.html' %}
+{% block title %}Always From Keyboard{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10" style="display:block;background-color:white;heigth:900px;padding:50px;">
+            {% for post in blog %}
+                <div class="row" style="padding-bottom:15px;">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-4">
+                        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename=post.imagen) }}" class="img-responsive img-rounded img-thumbnail" alt="{{ post.titulo }}" style="height:250px;width:300px;"></a>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4><a href="{{ url_for('index') }}"><strong>{{ post.titulo }}</strong></a></h4>
+                        <p>{{  post.post  }}</p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10" style="display:block;background-color:#141414;">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem odit perferendis. Beatae cumque enim error exercitationem harum illo libero quis repellat unde. Atque in sapiente sed temporibus tenetur veritatis!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque, doloremque earum id nemo officia officiis praesentium quia saepe unde. Atque distinctio dolorem ea id nisi officiis placeat quaerat quos?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam amet cupiditate harum id, incidunt ipsam, maiores molestiae natus odit pariatur soluta, tempora tempore? Debitis deleniti obcaecati officia rem sint.
+            </p>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+</div>
+{% endblock %}

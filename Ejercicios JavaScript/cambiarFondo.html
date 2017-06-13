@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<button class="btn" onclick="play()">Empezar</button>
+	<button class="btn" onclick="parar()">Parar</button>
+	<script>
+		let tiempo = 1000;
+		let intervalo;
+		
+		let play = function() {
+			intervalo = setInterval(function() {
+				let colorRojo = Math.round(Math.random() * 255) + 1;
+				let colorVerde = Math.round(Math.random() * 255) + 1;
+				let colorAzul = Math.round(Math.random() * 255) + 1;
+				let colorRandom = `rgb(${colorRojo}, ${colorVerde}, ${colorAzul})`;
+				document.querySelector('body').style.backgroundColor = colorRandom;	
+			}, tiempo);
+		}
+
+		let parar = function() {
+			clearInterval(intervalo);
+		}
+
+		play();
+	</script>
+</body>
+</html>

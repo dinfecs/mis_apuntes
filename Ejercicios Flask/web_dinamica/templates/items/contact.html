@@ -1,0 +1,13 @@
+{% extends 'layouts/master.html' %}
+{% block tittle %}Home{% endblock %}
+{% block body %}
+<h2>Contactame beibi</h2>
+<form action="#">
+    {{ form.csrf_token }}
+    {{ form.name.label }}: {{ form.name() }}<br>
+    {{ form.email.label }}: {{ form.email() }}<br>
+    {{ form.phone.label }}: {{ form.phone() }}<br>
+    {{ form.menssage.label }}: {{ form.menssage() }}<br>
+    {{ form.submit }}
+</form>
+{% endblock %}

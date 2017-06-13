@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block tittle %}{% endblock %}</title>
+        <link rel="stylesheet" href=" {{ url_for('static', filename='css/bootstrap.min.css') }}">
+    </head>
+    <body>
+        <nav class="navbar navbar-default" style="background-color:lightblue; height:35px; width:100%; margin-bottom: 100px;">
+	            <div class="container-fluid">
+	                <div class="navbar-header">
+	                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+	                    aria-expanded="false">
+	                        <span class="sr-only">Toggle navigation</span>
+	                        <span class="icon-bar"></span>
+	                        <span class="icon-bar"></span>
+	                        <span class="icon-bar"></span>
+	                    </button>
+	                    <div id="logotipo"><a class="navbar-brand" id="logo" href="#"><span style="color:white;">FEISTTER v0.1</span></a></div>
+	                </div>
+	                <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
+	                    <ul class="nav navbar-nav">
+	                        <li class="active"><a href="{{ url_for('index') }}" id="activado" style="background-color:lightblue;"><i class="fa fa-home" aria-hidden="true"></i><span>Inicio</span><span class="sr-only">(current)</span></a>
+	                        </li>
+							<li><a href="#"><i class="fa fa-users" aria-hidden="true"></i>Perfil</a>
+							<li><a href="#"><i class="fa fa-picture-o" aria-hidden="true"></i>Amigos</a>
+							<li><a href="{{ url_for('modificar_perfil') }}"><i class="fa fa-hand-lizard-o" aria-hidden="true"></i>Editar</a>
+							<li><a href="#"><i class="fa fa-comments" aria-hidden="true"></i>Logout</a>
+	                        </li>
+	                    </ul>
+					</div>
+	            </div>
+	        </nav>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

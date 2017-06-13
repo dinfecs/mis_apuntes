@@ -1,0 +1,9 @@
+Gestor de tareas
+
+- Pide una tarea.
+- Escríbela en un archivo nuevo. Si existe previamente, añadir pero nunca sobreescribir.
+- Muestra todas las tareas de forma ordenadas
+
+Pro:
+
+- Enumera las tareas

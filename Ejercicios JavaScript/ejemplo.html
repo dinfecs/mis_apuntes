@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#texto {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="desplegable">
+		<button id="boton" class="btn">Mostrar</button>
+		<p id="texto">
+			Sit accusamus deleniti nobis dignissimos minus? Rem dolore adipisci doloremque a ipsam In ab est in natus magnam Ullam repudiandae praesentium dolor quasi amet Aliquam et ea blanditiis soluta neque
+		</p>
+	</div>
+	<script>
+		// Capturas boton
+		let boton = document.querySelector('#boton');
+		let texto = document.querySelector('#texto');
+		let mostrar = true;
+		// Nuevo evento
+		boton.addEventListener('click', function() {
+			if(mostrar) {
+				mostrar = false;
+				boton.innerHTML = 'Ocultar';
+				texto.style.display = 'block';
+			} else {
+				mostrar = true;
+				boton.innerHTML = 'Mostrar';
+				texto.style.display = 'none';
+			}
+		}, false); 
+	</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+Formulario de padre
+
+- Pide el nombre.
+- Pide el sexo.
+- Pide el número de hijos.
+- Muestra la siguiente frase dependiento de los datos anteriores:
+
+El señor Pepe tiene 1 hijo.
+

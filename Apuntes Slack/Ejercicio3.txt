@@ -1,0 +1,9 @@
+Calculadora de IVA
+
+- Pide la cifra a calcular.
+- Muestra la misma cifra con IVA añadido.
+
+Pro:
+
+- Muestra además la cifra sin iba.
+- Formatea de una forma atractiva.

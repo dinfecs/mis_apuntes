@@ -1,0 +1,21 @@
+Notas de alumnos
+
+- Realiza un diccionario con unos alumnos y unas notas>
+
+	Marta: 7,8
+	Luis: 5
+	Lorena: 6,9
+	...
+
+- Muestra las notas de una forma ordenada. 
+
+	+------+----+
+	|Alumno|Nota|
+	+------+----+
+	|Marta |7,8 |
+	+------+----+
+	|Luis  |5   |
+	+------+----+
+
+- Da la posibilidad de cambiar la nota.
+- Da la posibilidad de eliminar alumnos.

@@ -1,0 +1,47 @@
+<html>
+  <body>
+    Nombre: <input type="text" id="nombre">
+    Nota: <input type="number" id="nota">
+    <br>
+    <h2>Evaluacion</h2>
+    <input class="evaluacion" type="radio" name="evaluacion" id="evaluacion" value="1" checked> 1 <br>
+    <input class="evaluacion" type="radio" name="evaluacion" id="evaluacion" value="2"> 2 <br>
+    <input class="evaluacion" type="radio" name="evaluacion" id="evaluacion" value="3"> 3 <br>
+    <input type="button" value="Add" onclick="add()">
+    <table>
+      <thead>
+        <td>
+          <th>Nombre</th>
+          <th>Nota</th>
+        </td>
+      </thead>
+      <tbody id="todas_notas"></tbody>
+    </table>
+    <script>
+      let notas = [];
+      let add = function() {
+        let campo_nombre = document.querySelector('#nombre');
+        let campo_nota = document.querySelector('#nota');
+        let campos_evaluacion = document.querySelectorAll('.evaluacion');
+        let todas_notas = document.querySelector('#todas_notas');
+        let checked_evaluacion;
+
+        console.log(campo_nombre.value + ' ' + campo_nota.value);
+        //obtenemos el checked del radio
+        for(radio of campos_evaluacion) {
+          if (radio.checked == true) {
+              checked_evaluacion = radio.value;
+          }
+        }
+        //almacenamos
+        notas.push({nombre: campo_nombre.value, nota: campo_nota.value});
+        //imprimimos
+        let html = '';
+        for(alumno of notas) {
+          html += '<tr><td>' + alumno.nombre + '</td><td>' + alumno.nota + '</td></tr>';
+        }
+        todas_notas.innerHTML = html;
+      }
+    </script>
+  </body>
+</html>

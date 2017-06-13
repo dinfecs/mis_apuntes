@@ -1,0 +1,7 @@
+Realiza una calculadora. 
+- Pide un número.
+- Pide otro número.
+- Muestra el resultado.
+
+Pro:
+- Pregunta por diferentes operaciones (Sumar, restar, dividir...)

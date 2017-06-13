@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+      #mesa {
+        height: 200px;
+        width: 200px;
+        margin: 10px auto;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mesa"></div>
+      <button id="red" class="btn btn-danger" onclick="colorear_rojo()">Red</button>
+      <button id="green" class="btn btn-success" onclick="colorear_verde()">Green</button>
+      <input type="range" id="inclinacion" name="" min="0" max="360" onmousemove="rotar()">
+      <button id="add" class="btn btn-primary" onclick="add()">+</button>
+    <script>
+      //funcion para cambiar colores de las etiquetas con ID mesa
+      let mesa = document.querySelector('#mesa');
+      let colorear_verde = function() {
+        mesa.style.backgroundColor = 'green';
+      }
+      let colorear_rojo = function() {
+        mesa.style.backgroundColor = 'red';
+      }
+      //funcion para rotar el div
+      let rotar = function() {
+        let inclinacion = document.querySelector('#inclinacion');
+        mesa.style.transform = `rotate(${inclinacion.value}deg)`
+      }
+        console.log()
+      //funcion para añadir etiquetas
+      let add = function() {
+        let nuevo = document.createElement('div');
+        nuevo.setAttribute('id', 'mesa');
+        document.querySelector('body').appendChild(nuevo);
+      }
+    </script>
+    <div class="jumbotron">
+      <h1 class="text-center" id="numero">0</h1>
+      <button class="btn btn-success center-block" onclick="aumentar()">+</button>
+      <button class="btn btn-success center-block" onclick="limpiar()">Limpiar</button>
+    </div>
+    <script>
+      let contador = 0;
+      let numero = document.querySelector('#numero');
+      let aumentar = function() {
+        contador += 1;
+        numero.innerHTML = contador;
+      }
+      let limpiar = function() {
+        contador = 0
+        numero.innerHTML = contador;
+      }
+    </script>
+  </body>
+</html>

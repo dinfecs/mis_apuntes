@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+		#patito {
+			width: 300px;
+			margin: 0 auto;
+			background: #C7DC93;
+			border: 2px solid #93B27E;
+			color: #0F69D3;
+			border-radius: 2em;
+		}
+		#boton {
+			font-weight: bold;
+			text-align: center;
+			padding: 1em;
+			border-radius: 2em;
+			cursor: pointer;
+		}
+		#boton:hover {
+			background: #93B27E;
+		}
+		#text {
+			display: block;
+			height: 0px;
+			padding: 0em;
+			margin: 0;
+			overflow: hidden;	
+			transition: 1s all;
+		}
+	</style>
+</head>
+<body>
+	<div id="patito">
+		<div id="boton" onclick="togglePatito()">Patitos <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span></div>
+		<p id="text">
+			Adipisicing enim omnis a eaque assumenda dolorem ullam exercitationem. Suscipit vero quaerat facere dicta sed nostrum! Odio animi et qui quo ut tempore aliquam dicta Aspernatur velit nesciunt dignissimos repellendus?
+		</p>
+	</div>
+	<script>
+		let patito_text = document.querySelector('#text');
+		let patito_open = false;
+		let togglePatito = function() {
+			if(patito_open) {
+				patito_text.style.padding = '0em';
+				patito_text.style.height = '0px';
+				patito_open = false;
+			} else {
+				patito_text.style.padding = '1em';
+				patito_text.style.height = '120px';
+				patito_open = true;
+			}
+		}
+	</script>
+</body>
+</html>

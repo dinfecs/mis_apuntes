@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <h1 id="reloj">
+    <span id="hora"></span>:
+    <span id="minuto"></span>:
+    <span id="segundo"></span>
+  </h1>
+  <h2>Alarma</h2>
+  <form>
+    <input type="text" id="alarma">
+    <input type="button" id="boton" value="Activar">
+  </form>
+  <script>
+    // DOM
+    let alarma = document.querySelector('#alarma');
+    //variables
+    let boton = document.querySelector('#boton')
+    let hora = document.querySelector('#hora');
+    let minuto = document.querySelector('#minuto');
+    let segundo = document.querySelector('#segundo');
+    let alarmaActivar = false;
+    let alarmaHora, alarmaMinuto;
+    let parpadeoActivar = true;
+    let tiempoParadeo = 300;
+    const SEGUNDO = 1000;
+    //funciones
+    let decorarHora = function(num) {
+      if (num < 10) {
+        return '0' + num;
+      } else {
+        return num;
+      }
+    }
+    let parpadeo = function() {
+      if(parpadeoActivar) {
+        document.querySelector('#reloj').style.visibility = 'visible';
+        parpadeoActivar = false;
+      } else {
+        document.querySelector('#reloj').style.visibility = 'hidden';
+        parpadeoActivar = true;
+      }
+    }
+    let actualizarHora = function() {
+      //tiempo_actual
+      let myDate = new Date();
+      let hora_actual = myDate.getHours();
+      let minuto_actual = myDate.getMinutes();
+      let segundo_actual = myDate.getSeconds();
+
+      //comprobamos la alarma
+      if(alarmaActivar) {
+        if (alarmaHora == hora_actual && alarmaMinuto == minuto_actual) {
+          let audio = new Audio('alarma.wav');
+          audio.play();
+          document.querySelector('#reloj').style.color = '#c1071e';
+          setInterval(parpadeo, tiempoParadeo);
+          alarmaActivar = false;
+        }
+      }
+
+      //dibujamos
+      hora.innerHTML = decorarHora(hora_actual);
+      minuto.innerHTML = decorarHora(minuto_actual);
+      segundo.innerHTML = decorarHora(segundo_actual);
+    }
+    //intervalos
+    actualizarHora();
+    let intervaloHora = setInterval(actualizarHora, SEGUNDO);
+    //EVENTOS
+    boton.addEventListener('click', function() {
+      alarmaActivar = true;
+      // obtenemos la hora y los minutos de la alarma
+      let tiempoAlarma = alarma.value;
+      let tiempoSeparado = tiempoAlarma.split(':');
+      alarmaHora = tiempoSeparado[0];
+      alarmaMinuto = tiempoSeparado[1];
+      //desactivamos los botones
+      boton.disabled = true;
+      alarma.disabled = true;
+    }, false);
+
+  </script>
+</body>
+</html>

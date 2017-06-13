@@ -1,0 +1,37 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+	//Declaración
+	var sNombre = "Atila"
+	sNombre = sNombre + " el huno"
+	document.write(sNombre)
+
+	//Nulos
+	var valorNulo = null
+
+	//Indefinidas
+	var var1, var2, var3 
+	var var1
+	var var2
+	var var3
+	
+	//No compatible
+	var oNumerico = 'a' * 1
+
+	//Funciones
+	function imprimeNombreConquistador() { 
+		var nombre = "Atila"  
+		nombre = nombre + " el huno"
+		document.write(nombre)
+	} 
+
+	var imprimeNombreConquistador2 = function() {
+		var nombre = "Alejandro"  
+		nombre = nombre + " Magno"
+	}
+
+	//Funciones importantes
+	setTimeout("imprimeNombreConquistador()", 1000);
+	setInterval("imprimeNombreConquistador2()", 5000);
+
+</script>

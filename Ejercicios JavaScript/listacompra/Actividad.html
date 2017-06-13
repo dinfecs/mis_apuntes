@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="static/js/lista.js" type="text/javascript"></script>
+</head>
+<body id="fondo">
+	<div class="container-fluid">
+		<nav class="navbar navbar-default" id="navbar">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#">
+		        <img src="static/img/logo.png" id="logo">
+		      </a>
+		    </div>
+		  </div>
+		</nav>
+		<div id="banner">
+			<h1 id="mercachonda">
+				<strong>
+					<span id="verde">MERCA</span>
+					<span id="amarillo">CHONDA</span>
+				</strong>
+			</h1>
+		</div>
+		<nav class="navbar navbar-default" id="navbar">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<h3 id="titulo"><strong>LISTA DE LA COMPRA</strong></h3>
+				</div>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row" id="contenido">
+				<div class="col-sm-3">
+					<div class="table-responsive">
+						<table class="table table-striped">
+							<tr>
+								<th>
+									<p><strong>Producto</strong></p>
+									<input class="productos" type="text" name="producto" id="producto">			
+									<p><strong>Cantidad</strong></p>								
+									<input class="productos" type="number" name="cantidad" id="cantidad">
+								</th>
+							</tr>
+							<tr>				
+								<th>
+		   							<input type="button" value="Agregar" onclick="add()" class="btn btn-success">
+		   							<a href="http://www.upload.ee/image/2374226/new.swf" class="btn btn-danger">NO PULSES AQUI</a>
+		   						</th>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Producto</th>
+								<th>Cantidad</th>
+							</tr>
+						</thead>
+				    	<tbody id="todos_productos">
+				    		
+				    	</tbody>
+				    </table>
+				</div>			
+			</div>
+		</div>
+	</div>
+</body>
+</html>

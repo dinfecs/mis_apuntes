@@ -1,0 +1,9 @@
+Buscador de parejas
+
+- Pide el nombre.
+- Pide el nombre de la persona que le gusta.
+- Muestra la frase> "A {nombre 1} le gusta {nombre 2}."
+
+Pro:
+
+Forma la siguiente frase> "Me llamo {nombre} y nací el {año de nacimiento}. Por lo tanto tengo 23." 

@@ -1,0 +1,38 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Nueva nota{% endblock %}
+{% block body %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    {% for categoria, message in messages %}
+        <div class="alert alert-{{ categoria }}">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10" style="background-color:white;border-radius:10px;">
+        <h1 class="text-center">Registrarse</h1>
+        <div class="container">
+            <form method="post" action="">
+                {{ form.csrf_token }}
+                <p style="width:80%;">
+                    {{ form.name.label }}{{ form.name(class="form-control") }}
+                </p>
+                <p style="width:80%;">
+                    {{ form.email.label }}{{ form.email(class="form-control") }}
+                </p>
+                <p style="width:80%;">
+                    {{ form.password.label }}{{ form.password(class="form-control") }}
+                </p>
+                <p style="width:80%;">
+                    {{ form.password2.label }}{{ form.password2(class="form-control") }}
+                </p>
+                <p>
+                    {{ form.submit(class="btn") }}
+                </p>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+{% endblock %}

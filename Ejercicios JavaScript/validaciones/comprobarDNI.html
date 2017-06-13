@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="errores"></div>
+  <form action="" onsubmit="return comprobaciones()">
+    <input type="text" name="" id="dni">
+    <input type="submit" value="Comprobar">
+  </form>
+  <script>
+    function nif(dni) {
+      var numero
+      var letr
+      var letra
+      var expresion_regular_dni
+    
+      expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
+    
+      if(expresion_regular_dni.test (dni) == true){
+        numero = dni.substr(0,dni.length-1);
+        letr = dni.substr(dni.length-1,1);
+        numero = numero % 23;
+        letra='TRWAGMYFPDXBNJZSQVHLCKET';
+        letra=letra.substring(numero,numero+1);
+        if (letra!=letr.toUpperCase()) {
+          alert('Dni erroneo, la letra del NIF no se corresponde');
+        }else{
+          alert('Dni correcto');
+        }
+      }else{
+        alert('Dni erroneo, formato no válido');
+      }
+    }
+    let comprobaciones = function() {
+      let dni = document.querySelector('#dni');
+      let errores = document.querySelector('#errores')
+      if(dni.value == '') {
+        errores.innerHTML = 'debe rellenar el DNI';
+        return false;
+      }
+      if (!nif(dni.value)) {
+        errores.innerHTML = 'EL DNI NO EXISTE'
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>

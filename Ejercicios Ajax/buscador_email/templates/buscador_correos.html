@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="busqueda">
+    <div id="resultados"></div>
+    <script>
+            // Variables
+    let xhttp = new XMLHttpRequest();
+    let busqueda = document.querySelector('#busqueda');
+    let resultados = document.querySelector('#resultados');
+
+    // Funciones
+    let obtenerPaises = function () {
+        let textoBusqueda = busqueda.value;
+        if(busqueda.value != '') {
+            xhttp.open('GET', `/busqueda/${textoBusqueda}`, true);
+            xhttp.send();
+        } else {
+            resultados.innerHTML = '';
+        }
+    }
+
+    let grabar = function(correo) {
+        busqueda.value = correo;
+        resultados.innerHTML = '';
+    }
+
+    // Eventos
+    busqueda.addEventListener('keyup', obtenerPaises, false);
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let correos = JSON.parse(this.responseText);
+            let html = '';
+            for(let correo of correos) {
+                html += `<span onclick="grabar('${correo.nombre}')">${correo.nombre}</span><br>`
+            }
+            resultados.innerHTML = html;
+        }
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#galeria img {
+			width: 300px;
+			height: 150px;
+			margin: 2em;
+			cursor: pointer;
+		}
+		#galeria {
+			display: flex;
+		}
+		#popup {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, .7);
+			display: none;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		#popup img {
+			max-width: 700px;
+		}
+		#popup #cerrar {
+			color: black;
+			background: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>Galeria</h1>
+	<section id="galeria">
+		<img src="img/1.png" onclick="openPopup('img/1.png')" alt="">
+		<img src="img/2.png" onclick="openPopup('img/2.png')" alt="">
+		<img src="img/3.jpg" onclick="openPopup('img/3.jpg')" alt="">
+	</section>
+	<div id="popup">
+		<div id="cerrar" onclick="cerrar()">X</div>
+		<img src="img/1.png" alt="">
+	</div>
+	<script>
+		let popup = document.querySelector('#popup');
+		let openPopup = function(rutaImagen) {
+			let imagen = document.querySelector('#popup img');
+			popup.style.display = 'flex';
+			imagen.setAttribute('src', rutaImagen);
+		}
+		let cerrar = function() {
+			popup.style.display = 'none';
+		}
+	</script>
+</body>
+</html>

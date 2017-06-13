@@ -1,0 +1,18 @@
+{% extends 'layouts/master.html' %}
+{% block title %}Perfil{% endblock %}
+{% block body %}
+<center>
+<form action="" method="post" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+    <p>{{ form.username.label }}</p>
+    <p>{{ form.username(value=user.username) }}</p>
+    <p>{{ form.password_anterior.label }}</p>
+    <p>{{ form.password_anterior() }}</p>
+    <p>{{ form.password_nueva.label }}</p>
+    <p>{{ form.password_nueva() }}</p>
+    <p>{{ form.avatar.label }}</p>
+    <p>{{ form.avatar() }}</p>
+    <p>{{ form.submit() }}</p>
+</form>
+</center>
+{% endblock %}

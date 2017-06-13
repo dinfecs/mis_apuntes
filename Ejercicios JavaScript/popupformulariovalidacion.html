@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <title>Document</title>
+  <style>
+    #BloqueadorEdad {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <h1>Tractores oficial</h1>
+  <h2>Nacionales</h2>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Laboriosam voluptatibus nesciunt porro accusamus, impedit
+    accusantium maxime corporis, eaque voluptates, distinctio
+    nisi. Deserunt libero sit eligendi numquam at. Incidunt
+    cumque, corrupti?
+  </p>
+  <div id="BloqueadorEdad">
+    <form action="" id="formEdad" class="form-control">
+      <select name="edad" id="edad">
+      </select>
+      <input type="button" value="Año de nacimiento" class="btn btn-info" id="botonEdad">
+    </form>
+  </div>
+  <script>
+    //generar las opciones
+    const EDAD_LEGAL = 18;
+    let edad = document.querySelector('#edad');
+    let inicioAnyo = 1900;
+    let finalAnyo = new Date().getFullYear();
+    let htmlOptions = '';
+    for(let i = inicioAnyo; i <= finalAnyo; i++) {
+      htmlOptions += `<option value="${i}">${i}</option>`;
+      edad.innerHTML = htmlOptions;
+    }
+    //mostramos BloqueadorEdad
+    let tiempoParaMostrar = 1500;
+    let BloqueadorEdad = document.querySelector('#BloqueadorEdad');
+    setTimeout(function() {
+      BloqueadorEdad.style.display = 'flex';
+    }, tiempoParaMostrar);
+    //comprobamos
+    let botonEdad = document.querySelector('#botonEdad');
+    botonEdad.addEventListener('click', function() {
+      let anyoSeleccionado = edad.value;
+      if(anyoSeleccionado <= finalAnyo - EDAD_LEGAL) {
+        BloqueadorEdad.style.display = 'none';
+      } else {
+        document.location = 'https://marca.com/';
+      }
+    }, false)
+  </script>
+</body>
+</html>

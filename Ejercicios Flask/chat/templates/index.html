@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <h1>Chat</h1>
+    <table>
+        {% for mensaje in mensajes %}
+            <tr>
+                <td>{{ mensaje.alias }}:</td>
+                <td>{{ mensaje.mensaje }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <form action="{{ url_for('index') }}" method="post">
+        <input type="text" name="mensaje" id="mensaje">
+        <input type="submit">
+    </form>
+</body>
+</html>

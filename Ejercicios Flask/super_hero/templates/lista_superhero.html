@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+    <body>
+    <h1>HERO!</h1>
+    <table align="center">
+        <tr>
+            <td>Nombre</td>
+            <td>Descripción</td>
+            <td>Sexo</td>
+        </tr>
+        {% for heroe in heroes %}
+        <tr>
+            <td>{{ heroe.nombre }}</td>
+            <td>{{ heroe.descripcion }}</td>
+            <td>
+                {% if heroe.sexo == 1 %}
+                Mujer
+                {% else %}
+                Hombre
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="{{ url_for('guardar') }}" method="post">
+        <input type="text" name="nombre" id=""><br>
+        <textarea name="descripcion" id="" cols="30" rows="10"></textarea>
+        <input type="radio" name="sexo" id="" value="1">Mujer <br>
+        <input type="radio" name="sexo" id="" value="2">Hombre
+        <input type="submit">
+    </form>
+    </body>
+</html>

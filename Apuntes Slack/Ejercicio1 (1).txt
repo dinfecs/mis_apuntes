@@ -1,0 +1,5 @@
+- Imprime los números del 1 al 10.
+- Imprime los números de 60 al 70.
+- Imprime los números del 20 al 1.
+- Imprime los números del 1 al 1000
+- Imprime la tabla del 5.

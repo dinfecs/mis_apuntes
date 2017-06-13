@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>{% block title %}{% endblock %}</title>
+        <script src="{{ url_for('static', filename='js/jquery-3.1.1.min.js') }}"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="menu-sup">
+                        <a href="#" class="botonesMenuSup">inicio</a>
+                        <a href="#" class="botonesMenuSup">sobre nosotros</a>
+                        <a href="#" class="botonesMenuSup">contacto</a>
+                        <a href="#" class="botonesMenuSup">colabora con nosotros</a>
+                        <div class="btn-group pull-right">
+                          <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #303030;line-height: 35px;text-transform: uppercase;border: 0;color: white;padding-right: 30px;height: 45px;">
+                            siguenos en <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true" id="twitter"> - Twitter</i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true" id="facebook"> - Facebook</i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true" id="youtube"></i> - Youtube</a></li>
+                            <li><a href="#"><i class="fa fa-twitch" aria-hidden="true" id="twitch"></i> - Twitch</a></li>
+                          </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                   <div href="#" class="enlace_banner2">
+                        <div id="asd">
+                            <div class="enlaceBanner">
+                                <aside class="cat_banner">
+                                    <a href="#" class="cat_boton">categoria</a>
+                                </aside>
+                                <a href="#" class="tit_banner">
+                                    <h3>Titulo Noticia</h3>
+                                </a>
+                                <p class="autor_banner">Autor - Fecha</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div href="#" class="enlace_banner2">
+                        <div id="asd1">
+                            <div class="enlaceBanner">
+                                <aside class="cat_banner">
+                                    <a href="#" class="cat_boton">categoria</a>
+                                </aside>
+                                <a href="#" class="tit_banner">
+                                    <h3>Titulo Noticia</h3>
+                                </a>
+                                <p class="autor_banner">Autor - Fecha</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div href="#" class="enlace_banner2">
+                        <div id="asd2">
+                            <div class="enlaceBanner">
+                                <aside class="cat_banner">
+                                    <a href="#" class="cat_boton">categoria</a>
+                                </aside>
+                                <a href="#" class="tit_banner">
+                                    <h3>Titulo Noticia</h3>
+                                </a>
+                                <p class="autor_banner">Autor - Fecha</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="triangulo_de"></div>
+                    <div id="triangulo_iz"></div>
+                    <div id="menu-inf" class="nav-center">
+                        <a class="navbar-brand" href="#">
+                            <img id="logomenu" src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+                        </a>
+                        <div id="menuprinCenter">
+                            <a href="#" class="botonesMenuprin">INICIO</a>
+                            <a href="#" class="botonesMenuprin">NOTICIAS<div class="menuPrinFon"></div></a>
+                            <a href="#" class="botonesMenuprin">ANÁLISIS</a>
+                            <a href="#" class="botonesMenuprin">REPORTAJES</a>
+                            <a href="#" class="botonesMenuprin">VÍDEOS</a>
+                            <a href="#" class="botonesMenuprin">PODCAST</a>
+                            <a href="#" class="botonesMenuprin">OPINIÓN</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="bannerIni">
+                    <img src="{{ url_for('static', filename='img/banner.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+          <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+                  <section id="contenidoPost">
+                      {% block body %}{% endblock %}
+                  </section>
+                  <footer id="footer">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <section class="sectionFooter">
+                          <p>SÍGUENOS EN</p>
+                          <div class="separador"></div>
+                          <div id="siguenosEn">
+                            <div class="iconoRed">
+                              <i class="fa fa-twitter-square" aria-hidden="true" id="twitter"></i>
+                            </div>
+                            <div class="suscriBarra">
+                              <p>SEGUIR</p>
+                            </div>
+                            <div class="iconoRed">
+                              <i class="fa fa-facebook-square" aria-hidden="true" id="facebook"></i>
+                            </div>
+                            <div class="suscriBarra">
+                              <p>ME GUSTA</p>
+                            </div>
+                            <div class="iconoRed">
+                              <i class="fa fa-youtube-play" aria-hidden="true" id="youtube"></i>
+                            </div>
+                            <div class="suscriBarra">
+                              <p>SUSCRIBIRSE</p>
+                            </div>
+                            <div class="iconoRed">
+                              <i class="fa fa-twitch" aria-hidden="true" id="twitch"></i>
+                            </div>
+                            <div class="suscriBarra">
+                              <p><a href="#">SEGUIR</a></p>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                      <div class="col-sm-4">
+                        <section class="sectionFooter">
+                          <p>TAGS</p>
+                          <div class="separador"></div>
+                        </section>
+                      </div>
+                      <div class="col-sm-4">
+                        <section class="sectionFooter">
+                          <p>BUSCAR</p>
+                          <div class="separador"></div>
+                        </section>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                          <div class="separador"></div>
+                          <p id="footerLogo">
+                            <a href="#"><img src="{{ url_for('static', filename='img/logo2.png') }}" alt="" id="logoFooter"></a>
+                          </p>
+                          <div id="footerInf">
+                            <a href="#" class="botonesMenuSup">inicio</a>
+                            <a href="#" class="botonesMenuSup">sobre nosotros</a>
+                            <a href="#" class="botonesMenuSup">contacto</a>
+                            <a href="#" class="botonesMenuSup">colabora con nosotros</a>
+                          </div>
+                          <p id="copy">
+                            Copyright © 2016 Always From Keyboard - All rights reserved
+                          </p>
+                      </div>
+                    </div>
+                  </footer>
+              </div>
+              <div class="col-sm-1"></div>
+          </div>
+      </div>
+    </body>
+</html>

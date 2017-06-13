@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <style>
+    #mensajes {
+      width: 500px;
+      height: 500px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <input placeholder="NICK" type="text" name="apodo" id="apodo">
+    <div id="mensajes"></div>
+    <input placeholder="MENSAJE" type="text" id="mensaje">
+    <input type="button" value="Enviar" id="boton">
+  </center>
+  <script>  
+    let mensajes = document.querySelector('#mensajes');
+    let xhttp = new XMLHttpRequest();
+    let xhttp_enviar = new XMLHttpRequest();
+    let tiempo = 500;
+    let boton = document.querySelector('#boton')
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        mensajes.innerHTML = this.responseText;
+        let resultados_json = JSON.parse(this.responseText);
+        for(let item of resultados_json) {
+          mensajes.innerHTML += `${item.apodo}: ${item.mensaje}`
+        }
+        mensajes.scrollTop = mensajes.scrollHeight;
+      }
+    };
+    let interval_refresh = setInterval(function() {
+      xhttp.open('GET', '{{ url_for('get') }}', true);
+      xhttp.send();
+    }, tiempo)
+    
+    let enviar = function() {
+      //apodo: hola
+      let apodo = document.querySelector('#apodo');
+      let mensaje = document.querySelector('#mensaje');
+      let peticion = 'apodo=' + encodeURIComponent(apodo.value) +  '&mensaje=' + encodeURIComponent(mensaje.value) + '&nocache=' + Math.random();
+      xhttp_enviar.open('POST', '{{ url_for('add') }}', true);
+      xhttp_enviar.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhttp_enviar.send(peticion);
+      mensaje.value = '';
+    }
+    boton.addEventListener('click', enviar, false);
+    
+  </script>
+</body>
+</html>

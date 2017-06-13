@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            {% for item in menu %}
+            <li>
+                <a href="{{ item.enlace }}">{{ item.text }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+    <section>
+        {% block body %}{% endblock %}
+    </section>
+    <footer>
+        &copy;2017 Marco Alarcón
+    </footer>
+</body>
+</html>

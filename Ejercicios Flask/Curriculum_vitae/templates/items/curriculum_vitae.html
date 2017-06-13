@@ -1,0 +1,41 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Curriculum vitae{% endblock %}
+{% block body %}
+    <section>
+        <div class="jumbotron">
+            <h1>Curriculum vitae</h1>
+            <h2>Marco Alarcon</h2>
+            <h2>31/08/90</h2>
+        </div>
+        <div>
+            <a href="{{ url_for('new_experience') }}" class="btn btn-info">Añadir experiencia</a>
+        </div>
+    </section>
+    <section class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for categoria, message in messages %}
+                <div class="alert alert-{{ categoria }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </section>
+    <section>
+        {% if experiencia %}
+            <h2 style="color:white;">Experiencia</h2>
+            {% for item in experiencia %}
+            <div class="panel panel-default">
+                <div class="panel-heading">{{ item.empresa }} - {{ item.anyo_inicio }} al {{ item.anyo_salida }}
+                    <div class="btn-group" role="group" aria-label="...">
+                        <a href="{{ url_for('borrar_experiencia', id=item.id) }}" class="btn btn-danger pull-right" style="margin-top:-7px;">X</a>
+                        <a href="{{ url_for('edit_experience', id=item.id) }}" class="btn btn-success pull-right" style="margin-top:-7px;">Editar</a>
+                </div>
+                <div class="panel-body">
+                    {{ item.puesto }}
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </section>
+
+{% endblock %}

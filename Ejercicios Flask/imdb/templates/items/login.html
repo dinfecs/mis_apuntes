@@ -1,0 +1,12 @@
+{% extends 'layouts/master.html' %}
+{% block title %}Login{% endblock %}
+{% block body %}
+<h1>Login</h1>
+<form action="">
+    {{ form.csrf_token }}
+    {{ form.email.label }}: {{ form.email(class="form-control", style="margin:0 auto;width:80%;") }}
+    {{ form.password1.label }}: {{ form.password1(class="form-control", style="margin:0 auto;width:80%;") }}
+    {{ form.submit(value="Entrar", class="btn btn-info") }}
+</form>
+<a href="{{ url_for('signup') }}" class="btn btn-primary">Signup</a>
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12" style="background-color:#131313;padding-top:3em;padding-bottom:3em;border-bottom:5px solid yellow;">
+        <div class="text-center">
+          <h1 style="font-weight:800;color:white;">EL LATINO ADIVINO</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2" style="background:gray;height:900px;"></div>
+      <div class="col-sm-8">
+        <img src="{{ url_for('static', filename='img/pepe.png' )}}" alt="" class="img-circle" style="border: 1px solid black;margin:0 auto;">
+        <form class="form-group">
+          <label for="pregunta" style="margin-top:25px;">Preguntame tu duda GUAPETON o GUAPETONA, MMMMMMMMMUACK que bonic@ que eres me cachis en la mar</label>
+          <input placeholder="apodo" class="form-control" type="text" name="pregunta" id="" style="margin-top:25px;">
+          <input placeholder="mensaje" class="btn btn-info form-control" type="button" value="CONSULTAR AL LATINO ADIVINO" style="margin-top:25px;" id="boton">
+          <h2 id="respuesta"></h2>
+        </form>
+      </div>
+      <div class="col-sm-2" style="background:gray;height:900px;"></div>
+    </div>
+  </div>
+  <script>
+    let respuesta = document.querySelector('#respuesta')
+    let boton = document.querySelector('#boton')
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        respuesta.innerHTML = this.responseText;
+      }
+    };
+    let obtenerRespuesta = function() {
+      xhttp.open('GET', '/info', true);
+      xhttp.send();
+    }
+    boton.addEventListener('click', obtenerRespuesta, false);
+  </script>
+</body>
+</html>

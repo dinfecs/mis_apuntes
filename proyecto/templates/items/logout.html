@@ -1,0 +1,12 @@
+{% extends "layouts/master.html" %}
+
+{% block title %}Cerrar Sesion{% endblock %}
+
+{% block content_title %}Cerrar Sesion{% endblock %}
+
+{% block content %}
+  <p>Clickea en el boton para salir de la sesion.</p>
+  <form action="{{ url_for('logout') }}" class="form-horizontal" method="post">
+    <button class="btn btn-primary" type="submit">Salir</button>
+  </form>
+{% endblock %}
